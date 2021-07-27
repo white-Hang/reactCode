@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">main</div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+  </body>
+  <style>
+    .container {
+      padding-left: 200px; /* 预留左侧空间，为.left宽度*/
+      padding-right: 300px; /* 预留左侧空间，为.right宽度*/
+    }
+    .main {
+      float: left;
+      width: 100%;
+      height: 300px;
+      background: #67c23a;
+    }
+    .left {
+      float: left;
+      margin-left: -100%; 
+      /* 移动到左侧，100%是一个父元素宽度，这里也就是.container的宽度 */
+      position: relative; /* 因为.container设置了padding*/
+      right: 200px; 
+      /* 所以需要再向左移动自身宽度,left: -200px;也是可以的 */
+      width: 200px;
+      height: 300px;
+      background: #e6a23c;
+    }
+    .right {
+      float: left;
+      margin-right: -300px; 
+      /* 移动到右侧，自身宽度*/
+      width: 300px;
+      height: 300px;
+      background: #f56c6c;
+    }
+  </style>
+</html>
