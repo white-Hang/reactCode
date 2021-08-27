@@ -1,4 +1,4 @@
-import { takeEvery, put, call, delay } from 'redux-saga/effects'
+import { takeEvery, put, call, delay } from 'redux-saga/effects'//effect可以看作是redux-saga的任务单元
 import { INCREMENTASYNC } from './constant.js'
 import { increment } from './actions/count.js'
 

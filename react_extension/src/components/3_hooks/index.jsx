@@ -1,88 +1,46 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-
-//类式组件
-/* class Demo extends React.Component {
-
-	state = {count:0}
-
-	myRef = React.createRef()
-
-	add = ()=>{
-		this.setState(state => ({count:state.count+1}))
-	}
-
-	unmount = ()=>{
-		ReactDOM.unmountComponentAtNode(document.getElementById('root'))
-	}
-
-	show = ()=>{
-		alert(this.myRef.current.value)
-	}
-
-	componentDidMount(){
-		this.timer = setInterval(()=>{
-			this.setState( state => ({count:state.count+1}))
-		},1000)
-	}
-
-	componentWillUnmount(){
-		clearInterval(this.timer)
-	}
-
-	render() {
-		return (
-			<div>
-				<input type="text" ref={this.myRef}/>
-				<h2>当前求和为{this.state.count}</h2>
-				<button onClick={this.add}>点我+1</button>
-				<button onClick={this.unmount}>卸载组件</button>
-				<button onClick={this.show}>点击提示数据</button>
-			</div>
-		)
-	}
-} */
-
-function Demo(){
-	//console.log('Demo');
-
-	const [count,setCount] = React.useState(0)
-	const myRef = React.useRef()
-
-	React.useEffect(()=>{
-		let timer = setInterval(()=>{
-			setCount(count => count+1 )
-		},1000)
-		return ()=>{
-			clearInterval(timer)
-		}
-	},[])
-
-	//加的回调
-	function add(){
-		//setCount(count+1) //第一种写法
-		setCount(count => count+1 )
-	}
-
-	//提示输入的回调
-	function show(){
-		alert(myRef.current.value)
-	}
-
-	//卸载组件的回调
-	function unmount(){
-		ReactDOM.unmountComponentAtNode(document.getElementById('root'))
-	}
-
-	return (
-		<div>
-			<input type="text" ref={myRef}/>
-			<h2>当前求和为：{count}</h2>
-			<button onClick={add}>点我+1</button>
-			<button onClick={unmount}>卸载组件</button>
-			<button onClick={show}>点我提示数据</button>
-		</div>
-	)
+const Index = (props) => {
+  console.log(props, 'props')
+  const jumpUseState = () => {
+    props.history.push({
+      pathname: '/useState',
+    })
+  }
+  const jumpUseReducer = () => {
+    props.history.push({
+      pathname: '/useReducer',
+    })
+  }
+  const jumpUseContext = () => {
+    props.history.push({
+      pathname: '/useContext',
+    })
+  }
+  const jumpUseEffect = () => {
+    props.history.push({
+      pathname: '/useEffect',
+    })
+  }
+  const jumpUseLayoutEffect = () => {
+    props.history.push({
+      pathname: '/useLayoutEffect',
+    })
+  }
+  const jumpUseMemo = () => {
+    props.history.push({
+      pathname: '/useMemo',
+    })
+  }
+  return (
+    <div>
+      <button onClick={jumpUseState}>跳转useState</button>
+      <button onClick={jumpUseReducer}>跳转useReducer</button>
+      <button onClick={jumpUseContext}>跳转useContext</button>
+      <button onClick={jumpUseEffect}>跳转useEffect</button>
+      <button onClick={jumpUseLayoutEffect}>跳转useLayoutEffect</button>
+      <button onClick={jumpUseMemo}>跳转useMemo</button>
+    </div>
+  )
 }
 
-export default Demo
+export default React.memo(Index)
