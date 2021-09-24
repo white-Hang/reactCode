@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
-
+import axios from 'axios'
 const UseEffect = () => {
   const [count, setCount] = useState(() => 0)
   // 一、作为 componentDidMount 使用，[ ] 作第二个参数
-  //   useEffect(() => {
-  //     console.log(`点击了${count}次数`) //只会初始化执行一次
-  //   }, [])
+    useEffect(() => {
+      axios.post('/api/student').then((res) => {
+        console.log(res, 'res')
+      })
+      console.log(`点击了${count}次数`) //只会初始化执行一次
+    }, [])
   // 二、作为 componentDidUpdate 使用，可指定依赖
   //   useEffect(() => {
   //     console.log(`点击了${count}次数`) //count变化就能执行
