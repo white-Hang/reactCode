@@ -1,9 +1,9 @@
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { Button, Checkbox, Form, Input } from 'antd'
 import React from 'react'
-import style from './login.module.less'
-import { Button, Form, Input, Checkbox } from 'antd'
-import logo from '../../assets/image/logo1.png'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { postFormAxiosData } from '../../api/axiosType'
+import logo from '../../assets/image/logo1.png'
+import style from './login.module.less'
 const Login = (props) => {
   const onFinish = (values) => {
     const query = {
@@ -22,7 +22,7 @@ const Login = (props) => {
       <div className={style.loginForm}>
         <div className={style.right}>
           <img className={style.logo} src={logo} alt=""/>
-          <div className={style.title}>昱润血液透析智能系统</div>
+          <div className={style.title}>储藏昱润血液透析智能系统</div>
           <Form
             name="normal_login"
             className={style.loginInputForm}
